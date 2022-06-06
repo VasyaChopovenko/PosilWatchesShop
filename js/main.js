@@ -224,13 +224,13 @@ function getProductsInCatalog(arr) {
                         <p>Характеристики:</p>
                         <ul>
                             <li>Колір: ${item.productColor}</li>
-                            <li>Матеріалриал: ${item.productMaterial}</li>
+                            <li>Матеріал: ${item.productMaterial}</li>
                             <li>Категорія: ${item.category}</li>
                         </ul>
-                        <p class="product-price">Цена ${item.productPrice} грн</p>
+                        <p class="product-price">Ціна ${item.productPrice} грн</p>
                     </div>
                     <div class="modal-footer">
-                        <div class="close-mod-butt" data-dismiss="modal">Закрыть</div>
+                        <div class="close-mod-butt" data-dismiss="modal">Закрити</div>
                     </div>
                 </div>
             </div>
