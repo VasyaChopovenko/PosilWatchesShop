@@ -1,12 +1,11 @@
 function showSearch() {
     $('img#search').click(function () {
         $('.search-form > input').toggleClass('active');
-        console.log(true)
     })
 }
 showSearch();
 
-var products = [{
+let products = [{
         productName: 'Bbblanco SO27M102',
         productPrice: 2500,
         productColor: 'Чорний',
@@ -184,9 +183,9 @@ var products = [{
 ];
 
 function getCatList2() {
-    var catList = new Set();
+    let catList = new Set();
     let count = 0;
-    for (var i = 0; i < products.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         catList.add(products[i].category);
     }
     catList.forEach((value, valueAgain, set) => {
@@ -198,7 +197,7 @@ getCatList2();
 
 
 function getProductsInCatalog(arr) {
-    for (var i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         const item = arr[i];
         $('.products-list').append(`
         <div class="product-item" data-id="${item.categoryId}" data-identity="${item.identity}">
@@ -224,10 +223,10 @@ function getProductsInCatalog(arr) {
                         <p>Характеристики:</p>
                         <ul>
                             <li>Колір: ${item.productColor}</li>
-                            <li>Матеріалриал: ${item.productMaterial}</li>
+                            <li>Матеріал: ${item.productMaterial}</li>
                             <li>Категорія: ${item.category}</li>
                         </ul>
-                        <p class="product-price">Цена ${item.productPrice} грн</p>
+                        <p class="product-price">Ціна: ${item.productPrice} грн</p>
                     </div>
                     <div class="modal-footer">
                         <div class="close-mod-butt" data-dismiss="modal">Закрыть</div>
@@ -244,12 +243,10 @@ getProductsInCatalog(products);
 
 function filterProducts() {
     $('.category-list-sidebar > li').click(function () {
-        var currentId = $(this).attr('id');
-        var filteredList = products.filter(function (item) {
+        let currentId = $(this).attr('id');
+        let filteredList = products.filter(function (item) {
             return item.categoryId == currentId;
         });
-        console.log(filteredList)
-        console.log(currentId)
         resetProducts();
         getProductsInCatalog(filteredList);
         addProductsToCart(filteredList);
@@ -269,7 +266,7 @@ function resetProducts() {
 
 function sortProducts() {
     $('#lowPrice').click(function () {
-        var lowRriceProduct = products.sort(function (a, b) {
+        let lowRriceProduct = products.sort(function (a, b) {
             return a.productPrice - b.productPrice;
         });
         resetProducts();
@@ -277,7 +274,7 @@ function sortProducts() {
         addProductsToCart(lowRriceProduct)
     });
     $('#hightPrice').click(function () {
-        var hightPriceProduct = products.sort(function (a, b) {
+        let hightPriceProduct = products.sort(function (a, b) {
             return b.productPrice - a.productPrice;
         });
         resetProducts();
@@ -305,12 +302,12 @@ function colorLink() {
 };
 colorLink();
 
-var cart = [];
+let cart = [];
 
 function addProductsToCart(arr) {
     $('.order-butt').click(function() {
         let identity = $(this).parent().attr('data-identity');
-        for (var i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             const item = arr[i];
             if (identity === item.identity) {
                 cart.push(item);
@@ -335,8 +332,8 @@ function addProductsToCart(arr) {
 addProductsToCart(products);
 
 function getTotalSum() {
-    var totalSum = 0;
-    for (var i = 0; i < cart.length; i++) {
+    let totalSum = 0;
+    for (let i = 0; i < cart.length; i++) {
         totalSum += cart[i].productPrice;
       
         $('.total-sum').html(`${totalSum} грн`);

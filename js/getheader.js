@@ -26,7 +26,7 @@ var header = `<section>
                     </div>
                     <div class="modal-body">
                      <div class="products-in-cart">
-                     <div class="products-in-cart-tgitle">Ваша корзина порожня</div>
+                     <div class="products-in-cart-title">Ваша корзина порожня</div>
                      </div>
                      <div class="sum hidden">Всього до оплати:<span class="total-sum"></span></div>
                     <div class="buttons hidden">
